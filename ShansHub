@@ -1,0 +1,2214 @@
+----[Everything is free to edit as long as you meet these requirements]
+-- 1. Must Add A credit in the HomeTab > MainHomeTab that the original belongs to the creator **Shan**
+-- 2. You must not remove or alter any credit or attribution to the original creator.
+-- 3. Do not use the script for any malicious activities or exploits.
+-- 4. The script must be used responsibly and not cause any harm or disruption to other players' experiences.
+-- 5. You are allowed to modify the script for personal use but not for resale or distribution for profit.
+-- 6. Any public sharing of the script must maintain the credit section and not alter it in any way.
+-- 7. If you share this script, you must include the credit section intact and not alter the credit in any way.
+-- 8. Do not use the script in any way that violates the rights of other users or game developers.
+-- 9. If you are distributing a modified version of the script, provide a clear description of the modifications you made.
+-- 10. The creator, **Shan**, is not responsible for any issues or consequences that arise from using or modifying the script.
+-- 11. Do not redistribute or use this script in a way that can cause server crashes, lag, or damage to other players' experiences.
+-- 12. The script may be updated by the creator. Always check for updates to ensure compatibility with the latest version of Roblox.
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+local Window = OrionLib:MakeWindow({
+    Name = "Shan's Fun Hub | V.2.1",
+    HidePremium = false,
+    SaveConfig = false,
+    ConfigFolder = "OrionTest",
+    Draggable = true
+})
+
+-- TABS
+local HomeTab = Window:MakeTab({
+    Name = "Home",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local MainTab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local HubTab = Window:MakeTab({
+    Name = "Hubs",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local JoinGameTab = Window:MakeTab({
+    Name = "Join Game",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local FunTab = Window:MakeTab({
+    Name = "Fun Stuff",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local MiscTab = Window:MakeTab({
+    Name = "Miscellaneous",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Home Tab Sections
+local playerName = game.Players.LocalPlayer.Name  -- Get the player's name
+local HomeSection = HomeTab:AddSection({ Name = "Welcome" })
+
+-- Add welcome message with player's name
+HomeSection:AddParagraph("Info", "Welcome " .. playerName .. "! Enjoy a variety of features to enhance your experience! Version 2.1")
+-- Copy Orion Document Link Button
+HomeSection:AddButton({
+    Name = "Copy Orion Document Link",
+    Callback = function()
+        -- Copy the documentation link to clipboard
+        setclipboard("https://github.com/shlexware/Orion/blob/main/Documentation.md")
+        -- Notify the user
+        OrionLib:MakeNotification({
+            Name = "Link Copied",
+            Content = "Orion Hub document link has been copied. Check your clipboard.",
+            Time = 5,
+            Icon = "rbxassetid://4483345998" -- Notification icon
+        })
+    end
+})
+
+----sections
+---home tab sections subvision 2??
+local MainHomeTab = HomeTab:AddSection({ Name = "Home"})
+local MessageFCSection = HomeTab:AddSection({ Name = "Owner message"})
+local BetaSection = HomeTab:AddSection({ Name = "Beta Features"})
+local GettingDiscontinueSection = HomeTab:AddSection({ Name = "Getting discontinue" })
+-- Main Tab Sections
+local MainSection = MainTab:AddSection({ Name = "Main Features" })
+local PlayerFeature = MainTab:AddSection({ Name = "Player Features"})
+local TeleportSection = MainTab:AddSection({ Name = "Teleportation" })
+local EspSection = MainTab:AddSection({ Name = "Esp" })
+local TrollSection = MainTab:AddSection({ Name = "Troll"})
+---Hub tab sections
+local MainHubInfoSection = HubTab:AddSection({ Name = "INFO" })
+local MainHubSection = HubTab:AddSection({ Name = "Hubs"})
+local MainHubWithKeysSection = HubTab:AddSection({ Name = "Hubs with Keys"})
+local UniversalHubSection = HubTab:AddSection({ Name = "Universal | non hubs" })
+----Game tab sections
+local MainGameSection = JoinGameTab:AddSection({ Name = "Main" })
+
+-- Misc Tab Sections
+local MiscMainSection = MiscTab:AddSection({ Name = "Main" })
+local FPSBoostSection = MiscTab:AddSection({ Name = "Performance" })
+
+-- Fun Tab Sections
+local FunSection = FunTab:AddSection({ Name = "Fun Features" })
+----Home tab feature
+MainHomeTab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+    ---executes innifite yield
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    OrionLib:MakeNotification({
+        Name = "Executed successfully",
+        Content = "Successfully executed Infinite Yield",
+        Time = 5,
+        Icon = "rbxassetid://4483345998"
+    })
+    end
+})
+-- Changelog Button
+MainHomeTab:AddButton({
+    Name = "View Changelog",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Changelog",
+            Content = "Version 2.1: Updates include new features in the Main section, enhancements to 'Teleport to Player,' improved 'Support' in Home > Home Section > Support, various optimizations, and more exciting changes`!",
+            Time = 50,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+-- Help Button
+MainHomeTab:AddButton({
+    Name = "How to Use",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "How to Use",
+            Content = "Navigate through the tabs to explore available features. Use toggles to activate or deactivate options, sliders for precise adjustments, and settings for additional customization. Enjoy a seamless experience while tailoring the hub to your needs!",
+            Time = 50,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+MainHomeTab:AddButton({
+    Name = "Support",
+    Callback = function()
+        -- Copy the support link to the clipboard
+        setclipboard("https://pastebin.com/dkMTepxt")
+        
+        -- Notify the user about the copied link
+        OrionLib:MakeNotification({
+            Name = "Support Information",
+            Content = "If you encounter any issues or bugs, please report them using the copied link in your clipboard.",
+            Time = 20,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MessageFCSection:AddButton({
+    Name = "Message From Creator",
+    Callback = function()
+        -- First notification
+        OrionLib:MakeNotification({
+            Name = "Main Information",  -- Title of the notification
+            Content = "We're working tirelessly to bring you more exciting features and improvements, ensuring that every user has the best experience possible. Our goal is to make this hub the go-to place for fun, with new scripts, tools, and enhancements being added regularly. Stay tuned for upcoming updates that will unlock even more possibilities, fun gameplay, and seamless interactions. Your feedback is valuable to us, and we're committed to delivering the best content. Thank you for your continued support, and enjoy the ride.",
+            Time = 20,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Second notification
+        wait(2)  -- Delay before showing the second notification
+        OrionLib:MakeNotification({
+            Name = "Developer Note",  -- Title of the second notification
+            Content = "All Scripts in Main, Misc, Fun stuff, Join Game Are made by me (Shan). and yes im the only developer because idk i dont wanna work with other people yah im so introvert lol idk why im even adding unlessful features like fun stuff tab bruh im so stupid :p i need someone to work for me",
+            Time = 10,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+-- Main Features
+MainSection:AddToggle({
+    Name = "Anti-Spawn Kill",
+    Default = false,
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+
+        -- Function to teleport the player 100 studs away from their spawn
+        local function teleportAway()
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                -- Get the spawn location (or spawn point) and teleport the player 100 studs away
+                local spawnLocation = character.HumanoidRootPart.Position
+                local direction = Vector3.new(math.random(-1, 1), 0, math.random(-1, 1)) -- Random direction
+                local newLocation = spawnLocation + direction * 100
+
+                -- Teleport to new location
+                character:SetPrimaryPartCFrame(CFrame.new(newLocation))
+
+                OrionLib:MakeNotification({
+                    Name = "Anti-Spawn Kill Activated",
+                    Content = "You have been teleported 100 studs away from spawn.",
+                    Time = 2,
+                    Icon = "rbxassetid://6031071053"
+                })
+            end
+        end
+
+        -- Check the value of the toggle
+        if Value then
+            -- Teleport the player immediately when the toggle is enabled
+            teleportAway()
+
+            -- Detect respawn and apply the teleport again
+            player.CharacterAdded:Connect(function(newCharacter)
+                wait(1)  -- Wait a bit for the character to load
+                teleportAway()
+            end)
+        end
+    end
+})
+MainSection:AddToggle({
+    Name = "Forcefield Toggle",
+    Default = false,
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+
+        if character then
+            if Value then
+                -- Create a forcefield if the toggle is on
+                local forceField = Instance.new("ForceField")
+                forceField.Parent = character
+
+                OrionLib:MakeNotification({
+                    Name = "Forcefield Enabled",
+                    Content = "A forcefield has been enabled around you.",
+                    Time = 2,
+                    Icon = "rbxassetid://6031071053"
+                })
+            else
+                -- Remove the forcefield if the toggle is off
+                for _, child in pairs(character:GetChildren()) do
+                    if child:IsA("ForceField") then
+                        child:Destroy()
+                    end
+                end
+
+                OrionLib:MakeNotification({
+                    Name = "Forcefield Disabled",
+                    Content = "The forcefield has been disabled.",
+                    Time = 2,
+                    Icon = "rbxassetid://6031071053"
+                })
+            end
+        end
+    end
+})
+
+
+MainSection:AddToggle({
+    Name = "Freeze Player",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            -- Freeze the player
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            if character and character:FindFirstChild("Humanoid") then
+                -- Set the humanoid's HipWidth and HipHeight to 0 to prevent movement
+                character.Humanoid.WalkSpeed = 0
+                character.Humanoid.PlatformStand = true
+
+                OrionLib:MakeNotification({
+                    Name = "Player Frozen",
+                    Content = "Player has been frozen and can no longer move.",
+                    Time = 2,
+                    Icon = "rbxassetid://6031071053"
+                })
+            end
+        else
+            -- Unfreeze the player
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            if character and character:FindFirstChild("Humanoid") then
+                -- Reset humanoid properties to allow movement again
+                character.Humanoid.WalkSpeed = 16  -- Default WalkSpeed
+                character.Humanoid.PlatformStand = false
+
+                OrionLib:MakeNotification({
+                    Name = "Player Unfrozen",
+                    Content = "Player has been unfrozen and can now move.",
+                    Time = 2,
+                    Icon = "rbxassetid://6031071053"
+                })
+            end
+        end
+    end
+})
+MainSection:AddButton({
+    Name = "Fly",
+    Callback = function()
+local main = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local up = Instance.new("TextButton")
+local down = Instance.new("TextButton")
+local onof = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local plus = Instance.new("TextButton")
+local speed = Instance.new("TextLabel")
+local mine = Instance.new("TextButton")
+local closebutton = Instance.new("TextButton")
+local mini = Instance.new("TextButton")
+local mini2 = Instance.new("TextButton")
+
+main.Name = "main"
+main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+main.ResetOnSpawn = false
+
+Frame.Parent = main
+Frame.BackgroundColor3 = Color3.fromRGB(163, 255, 137)
+Frame.BorderColor3 = Color3.fromRGB(103, 221, 213)
+Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
+Frame.Size = UDim2.new(0, 190, 0, 57)
+
+up.Name = "up"
+up.Parent = Frame
+up.BackgroundColor3 = Color3.fromRGB(79, 255, 152)
+up.Size = UDim2.new(0, 44, 0, 28)
+up.Font = Enum.Font.SourceSans
+up.Text = "UP"
+up.TextColor3 = Color3.fromRGB(0, 0, 0)
+up.TextSize = 14.000
+
+down.Name = "down"
+down.Parent = Frame
+down.BackgroundColor3 = Color3.fromRGB(215, 255, 121)
+down.Position = UDim2.new(0, 0, 0.491228074, 0)
+down.Size = UDim2.new(0, 44, 0, 28)
+down.Font = Enum.Font.SourceSans
+down.Text = "DOWN"
+down.TextColor3 = Color3.fromRGB(0, 0, 0)
+down.TextSize = 14.000
+
+onof.Name = "onof"
+onof.Parent = Frame
+onof.BackgroundColor3 = Color3.fromRGB(255, 249, 74)
+onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
+onof.Size = UDim2.new(0, 56, 0, 28)
+onof.Font = Enum.Font.SourceSans
+onof.Text = "fly"
+onof.TextColor3 = Color3.fromRGB(0, 0, 0)
+onof.TextSize = 14.000
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
+TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 100, 0, 28)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "FLY GUI V1"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+plus.Name = "plus"
+plus.Parent = Frame
+plus.BackgroundColor3 = Color3.fromRGB(133, 145, 255)
+plus.Position = UDim2.new(0.231578946, 0, 0, 0)
+plus.Size = UDim2.new(0, 45, 0, 28)
+plus.Font = Enum.Font.SourceSans
+plus.Text = "+"
+plus.TextColor3 = Color3.fromRGB(0, 0, 0)
+plus.TextScaled = true
+plus.TextSize = 14.000
+plus.TextWrapped = true
+
+speed.Name = "speed"
+speed.Parent = Frame
+speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
+speed.Size = UDim2.new(0, 44, 0, 28)
+speed.Font = Enum.Font.SourceSans
+speed.Text = "1"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.TextScaled = true
+speed.TextSize = 14.000
+speed.TextWrapped = true
+
+mine.Name = "mine"
+mine.Parent = Frame
+mine.BackgroundColor3 = Color3.fromRGB(123, 255, 247)
+mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+mine.Size = UDim2.new(0, 45, 0, 29)
+mine.Font = Enum.Font.SourceSans
+mine.Text = "-"
+mine.TextColor3 = Color3.fromRGB(0, 0, 0)
+mine.TextScaled = true
+mine.TextSize = 14.000
+mine.TextWrapped = true
+
+closebutton.Name = "Close"
+closebutton.Parent = main.Frame
+closebutton.BackgroundColor3 = Color3.fromRGB(225, 25, 0)
+closebutton.Font = "SourceSans"
+closebutton.Size = UDim2.new(0, 45, 0, 28)
+closebutton.Text = "X"
+closebutton.TextSize = 30
+closebutton.Position =  UDim2.new(0, 0, -1, 27)
+
+mini.Name = "minimize"
+mini.Parent = main.Frame
+mini.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
+mini.Font = "SourceSans"
+mini.Size = UDim2.new(0, 45, 0, 28)
+mini.Text = "-"
+mini.TextSize = 40
+mini.Position = UDim2.new(0, 44, -1, 27)
+
+mini2.Name = "minimize2"
+mini2.Parent = main.Frame
+mini2.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
+mini2.Font = "SourceSans"
+mini2.Size = UDim2.new(0, 45, 0, 28)
+mini2.Text = "+"
+mini2.TextSize = 40
+mini2.Position = UDim2.new(0, 44, -1, 57)
+mini2.Visible = false
+
+speeds = 1
+
+local speaker = game:GetService("Players").LocalPlayer
+
+local chr = game.Players.LocalPlayer.Character
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+nowe = false
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "FLY GUI V1";
+	Text = "BY  RTRIXV11";
+	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+Duration = 5;
+
+Frame.Active = true -- main = gui
+Frame.Draggable = true
+
+onof.MouseButton1Down:connect(function()
+
+	if nowe == true then
+		nowe = false
+
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+	else 
+		nowe = true
+
+
+
+		for i = 1, speeds do
+			spawn(function()
+
+				local hb = game:GetService("RunService").Heartbeat	
+
+
+				tpwalking = true
+				local chr = game.Players.LocalPlayer.Character
+				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+					if hum.MoveDirection.Magnitude > 0 then
+						chr:TranslateBy(hum.MoveDirection)
+					end
+				end
+
+			end)
+		end
+		game.Players.LocalPlayer.Character.Animate.Disabled = true
+		local Char = game.Players.LocalPlayer.Character
+		local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+
+		for i,v in next, Hum:GetPlayingAnimationTracks() do
+			v:AdjustSpeed(0)
+		end
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+	end
+
+
+
+
+	if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+
+
+
+		local plr = game.Players.LocalPlayer
+		local torso = plr.Character.Torso
+		local flying = true
+		local deb = true
+		local ctrl = {f = 0, b = 0, l = 0, r = 0}
+		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		local maxspeed = 50
+		local speed = 0
+
+
+		local bg = Instance.new("BodyGyro", torso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = torso.CFrame
+		local bv = Instance.new("BodyVelocity", torso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		if nowe == true then
+			plr.Character.Humanoid.PlatformStand = true
+		end
+		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+			game:GetService("RunService").RenderStepped:Wait()
+
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0,0)
+			end
+			--	game.Players.LocalPlayer.Character.Animate.Disabled = true
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		end
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+		tpwalking = false
+
+
+
+
+	else
+		local plr = game.Players.LocalPlayer
+		local UpperTorso = plr.Character.UpperTorso
+		local flying = true
+		local deb = true
+		local ctrl = {f = 0, b = 0, l = 0, r = 0}
+		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		local maxspeed = 50
+		local speed = 0
+
+
+		local bg = Instance.new("BodyGyro", UpperTorso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = UpperTorso.CFrame
+		local bv = Instance.new("BodyVelocity", UpperTorso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		if nowe == true then
+			plr.Character.Humanoid.PlatformStand = true
+		end
+		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+			wait()
+
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0,0)
+			end
+
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		end
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+		tpwalking = false
+
+
+
+	end
+
+
+
+
+
+end)
+
+local tis
+
+up.MouseButton1Down:connect(function()
+	tis = up.MouseEnter:connect(function()
+		while tis do
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,1,0)
+		end
+	end)
+end)
+
+up.MouseLeave:connect(function()
+	if tis then
+		tis:Disconnect()
+		tis = nil
+	end
+end)
+
+local dis
+
+down.MouseButton1Down:connect(function()
+	dis = down.MouseEnter:connect(function()
+		while dis do
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
+		end
+	end)
+end)
+
+down.MouseLeave:connect(function()
+	if dis then
+		dis:Disconnect()
+		dis = nil
+	end
+end)
+
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+	wait(0.7)
+	game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+end)
+
+
+plus.MouseButton1Down:connect(function()
+	speeds = speeds + 1
+	speed.Text = speeds
+	if nowe == true then
+
+
+		tpwalking = false
+		for i = 1, speeds do
+			spawn(function()
+
+				local hb = game:GetService("RunService").Heartbeat	
+
+
+				tpwalking = true
+				local chr = game.Players.LocalPlayer.Character
+				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+					if hum.MoveDirection.Magnitude > 0 then
+						chr:TranslateBy(hum.MoveDirection)
+					end
+				end
+
+			end)
+		end
+	end
+end)
+mine.MouseButton1Down:connect(function()
+	if speeds == 1 then
+		speed.Text = 'cannot be less than 1'
+		wait(1)
+		speed.Text = speeds
+	else
+		speeds = speeds - 1
+		speed.Text = speeds
+		if nowe == true then
+			tpwalking = false
+			for i = 1, speeds do
+				spawn(function()
+
+					local hb = game:GetService("RunService").Heartbeat	
+
+
+					tpwalking = true
+					local chr = game.Players.LocalPlayer.Character
+					local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+					while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+						if hum.MoveDirection.Magnitude > 0 then
+							chr:TranslateBy(hum.MoveDirection)
+						end
+					end
+
+				end)
+			end
+		end
+	end
+end)
+
+closebutton.MouseButton1Click:Connect(function()
+	main:Destroy()
+end)
+
+mini.MouseButton1Click:Connect(function()
+	up.Visible = false
+	down.Visible = false
+	onof.Visible = false
+	plus.Visible = false
+	speed.Visible = false
+	mine.Visible = false
+	mini.Visible = false
+	mini2.Visible = true
+	main.Frame.BackgroundTransparency = 1
+	closebutton.Position =  UDim2.new(0, 0, -1, 57)
+end)
+
+mini2.MouseButton1Click:Connect(function()
+	up.Visible = true
+	down.Visible = true
+	onof.Visible = true
+	plus.Visible = true
+	speed.Visible = true
+	mine.Visible = true
+	mini.Visible = true
+	mini2.Visible = false
+	main.Frame.BackgroundTransparency = 0 
+	closebutton.Position =  UDim2.new(0, 0, -1, 27)
+end)
+OrionLib:MakeNotification({
+    Name = "Fly",
+    Content = "Successfully Enabled Fly Hacks",
+    Time = 5,
+    Icon = "rbxassetid://4483345998"
+})
+end
+})
+-- Teleport Features
+local savedPosition = nil
+TeleportSection:AddButton({
+    Name = "Save Position",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            savedPosition = player.Character.HumanoidRootPart.CFrame
+            OrionLib:MakeNotification({
+                Name = "Position Saved",
+                Content = "Position saved successfully!",
+                Time = 5,
+                Icon = "rbxassetid://4483345998"
+            })
+        end
+    end
+})
+TeleportSection:AddButton({
+    Name = "Teleport to Saved Position",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if savedPosition and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = savedPosition
+            OrionLib:MakeNotification({
+                Name = "Teleported",
+                Content = "Teleported to saved position!",
+                Time = 5,
+                Icon = "rbxassetid://4483345998"
+            })
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "No saved position found!",
+                Time = 5,
+                Icon = "rbxassetid://6031071053"
+            })
+        end
+    end
+})
+TeleportSection:AddToggle({
+    Name = "Teleport to Player GUI",
+    Callback = function(enabled)
+        -- Create GUI elements
+        local player = game.Players.LocalPlayer
+        local playerGui = player:WaitForChild("PlayerGui")
+        
+        -- Ensure GUI doesn't duplicate
+        local teleportGui = playerGui:FindFirstChild("TeleportGui")
+        if not teleportGui then
+            teleportGui = Instance.new("ScreenGui")
+            teleportGui.Name = "TeleportGui"
+            teleportGui.Parent = playerGui
+
+            -- Frame
+            local frame = Instance.new("Frame")
+            frame.Name = "TeleportFrame"
+            frame.Size = UDim2.new(0, 250, 0, 150)
+            frame.Position = UDim2.new(0.5, -125, 0.5, -75)
+            frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            frame.BorderSizePixel = 0
+            frame.Parent = teleportGui
+
+            -- Make frame draggable
+            local dragging, dragInput, dragStart, startPos
+
+            frame.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    dragging = true
+                    dragStart = input.Position
+                    startPos = frame.Position
+
+                    input.Changed:Connect(function()
+                        if input.UserInputState == Enum.UserInputState.End then
+                            dragging = false
+                        end
+                    end)
+                end
+            end)
+
+            frame.InputChanged:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseMovement then
+                    dragInput = input
+                end
+            end)
+
+            game:GetService("UserInputService").InputChanged:Connect(function(input)
+                if input == dragInput and dragging then
+                    local delta = input.Position - dragStart
+                    frame.Position = UDim2.new(
+                        startPos.X.Scale,
+                        startPos.X.Offset + delta.X,
+                        startPos.Y.Scale,
+                        startPos.Y.Offset + delta.Y
+                    )
+                end
+            end)
+
+            -- TextBox
+            local textBox = Instance.new("TextBox")
+            textBox.Name = "VictimTextBox"
+            textBox.Size = UDim2.new(0, 200, 0, 30)
+            textBox.Position = UDim2.new(0.5, -100, 0.2, 0)
+            textBox.PlaceholderText = "Enter username or UserId"
+            textBox.Text = ""
+            textBox.TextColor3 = Color3.new(1, 1, 1)
+            textBox.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+            textBox.Parent = frame
+
+            -- Button
+            local teleportButton = Instance.new("TextButton")
+            teleportButton.Name = "TeleportButton"
+            teleportButton.Size = UDim2.new(0, 200, 0, 30)
+            teleportButton.Position = UDim2.new(0.5, -100, 0.6, 0)
+            teleportButton.Text = "Teleport"
+            teleportButton.TextColor3 = Color3.new(1, 1, 1)
+            teleportButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+            teleportButton.Parent = frame
+
+            -- Teleport logic
+            teleportButton.MouseButton1Click:Connect(function()
+                local victimNameOrId = textBox.Text
+                if victimNameOrId ~= "" then
+                    local victim
+                    if tonumber(victimNameOrId) then
+                        victim = game.Players:GetPlayerByUserId(tonumber(victimNameOrId))
+                    else
+                        victim = game.Players:FindFirstChild(victimNameOrId)
+                    end
+
+                    if victim and victim.Character and victim.Character:FindFirstChild("HumanoidRootPart") then
+                        player.Character.HumanoidRootPart.CFrame = victim.Character.HumanoidRootPart.CFrame
+                        print("Teleported to " .. victim.Name .. "!")
+                        OrionLib:MakeNotification({
+                            Name = "Teleported!",
+                            Content = "You have teleported to " .. victim.Name .. ".",
+                            Time = 5,
+                            Icon = "rbxassetid://4483345998"
+                        })
+                    else
+                        print("Victim not found.")
+                        OrionLib:MakeNotification({
+                            Name = "Error",
+                            Content = "Could not find the victim or their character.",
+                            Time = 5,
+                            Icon = "rbxassetid://6031071053"
+                        })
+                    end
+                else
+                    OrionLib:MakeNotification({
+                        Name = "Error",
+                        Content = "Textbox is empty. Enter a username or UserId.",
+                        Time = 5,
+                        Icon = "rbxassetid://6031071053"
+                    })
+                end
+            end)
+        end
+
+        teleportGui.Enabled = enabled
+    end
+})
+-- Troll feature
+TrollSection:AddButton({
+    Name = "Teleport on click",
+    Callback = function()
+        -- Configurations for the teleport feature
+        local Config = {
+            Bind = Enum.KeyCode.T, -- Key to toggle the teleport mode
+            Active_Color = Color3.fromRGB(0, 255, 0), -- Green
+            Inactive_Color = Color3.fromRGB(255, 0, 0) -- Red
+        }
+
+        -- Services and initial setup
+        local UserInputService = game:GetService("UserInputService")
+        local Players = game:GetService("Players")
+        local Mouse = Players.LocalPlayer:GetMouse()
+        local Player = Players.LocalPlayer
+        local Char = Player.Character or Player.CharacterAdded:Wait()
+        local RootPart = Char:WaitForChild("HumanoidRootPart")
+
+        -- Create Indicator GUI
+        local ScreenGui = Instance.new("ScreenGui", Player:WaitForChild("PlayerGui"))
+        local IndicatorFrame = Instance.new("Frame", ScreenGui)
+        IndicatorFrame.Size = UDim2.new(0, 100, 0, 50)
+        IndicatorFrame.Position = UDim2.new(0, 10, 1, -60) -- Bottom left corner
+        IndicatorFrame.BackgroundColor3 = Config.Inactive_Color -- Default is red
+
+        local TeleportEnabled = false
+
+        -- Toggle teleport mode
+        UserInputService.InputBegan:Connect(function(Input, GPE)
+            if GPE then return end
+            if Input.KeyCode == Config.Bind then
+                TeleportEnabled = not TeleportEnabled
+                if TeleportEnabled then
+                    IndicatorFrame.BackgroundColor3 = Config.Active_Color -- Green when active
+                else
+                    IndicatorFrame.BackgroundColor3 = Config.Inactive_Color -- Red when inactive
+                end
+            end
+        end)
+
+        -- Teleport player on mouse click
+        Mouse.Button1Down:Connect(function()
+            if TeleportEnabled and Mouse.Target then
+                local TargetPosition = Mouse.Hit.Position
+                RootPart.CFrame = CFrame.new(TargetPosition + Vector3.new(0, 3, 0)) -- Add offset to avoid getting stuck in objects
+            end
+        end)
+
+        -- Notification to remind users
+        OrionLib:MakeNotification({
+            Name = "Reminder",
+            Content = "This only supports laptop/PC users! Keybind to activate its T",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+TrollSection:AddButton({
+    Name = "Fling on click",
+    Callback = function()
+        local Config = {
+            Bind = Enum.KeyCode.Z, -- Key to toggle fling mode
+            Select_Color = Color3.fromRGB(0, 255, 0), -- Selection Box color
+            Active_Color = Color3.fromRGB(0, 255, 0), -- Green
+            Inactive_Color = Color3.fromRGB(255, 0, 0), -- Red
+            Prediction_Enable = true
+        }
+
+        local UserInputService = game:GetService("UserInputService")
+        local RunService = game:GetService("RunService")
+        local Players = game:GetService("Players")
+
+        local Player = Players.LocalPlayer
+        local Char = Player.Character or Player.CharacterAdded:Wait()
+        local Root = Char:WaitForChild("HumanoidRootPart")
+        local Humanoid = Char:WaitForChild("Humanoid")
+        local Mouse = Player:GetMouse()
+
+        -- Create Indicator GUI
+        local ScreenGui = Instance.new("ScreenGui", Player:WaitForChild("PlayerGui"))
+        local IndicatorFrame = Instance.new("Frame", ScreenGui)
+        IndicatorFrame.Size = UDim2.new(0, 100, 0, 50)
+        IndicatorFrame.Position = UDim2.new(1, -110, 1, -60) -- Bottom right corner
+        IndicatorFrame.BackgroundColor3 = Config.Inactive_Color -- Default is red
+
+        local SelectionBox = Instance.new("SelectionBox", script)
+        SelectionBox.Color3 = Config.Select_Color
+        SelectionBox.LineThickness = 0.02
+
+        local FlingEnabled = false
+        local A_2 = false
+
+        -- Toggle fling mode
+        UserInputService.InputBegan:Connect(function(Input, GPE)
+            if GPE then return end
+            if Input.KeyCode == Config.Bind then
+                if not A_2 then
+                    FlingEnabled = not FlingEnabled
+                    SelectionBox.Adornee = nil
+                    IndicatorFrame.BackgroundColor3 = FlingEnabled and Config.Active_Color or Config.Inactive_Color
+                end
+            end
+        end)
+
+        -- Highlight target with SelectionBox
+        Mouse.Move:Connect(function()
+            if FlingEnabled then
+                if Mouse.Target then
+                    if Mouse.Target.Parent:FindFirstChildOfClass("Humanoid") then
+                        SelectionBox.Adornee = Mouse.Target.Parent
+                    else
+                        SelectionBox.Adornee = nil
+                    end
+                else
+                    SelectionBox.Adornee = nil
+                end
+            end
+        end)
+
+        -- Fling functionality
+        Mouse.Button1Down:Connect(function()
+            if FlingEnabled and not A_2 then
+                local Character = SelectionBox.Adornee
+
+                if Character then
+                    A_2 = true
+
+                    local BodyGyro = Instance.new("BodyGyro", Root)
+                    BodyGyro.CFrame = CFrame.Angles(math.huge, math.huge, math.huge)
+
+                    local LastPos = Root.CFrame
+
+                    while Root and Character:FindFirstChild("HumanoidRootPart") do
+                        RunService.Heartbeat:Wait()
+
+                        if Character.HumanoidRootPart.Velocity.Magnitude <= 100 then
+                            if Config.Prediction_Enable then
+                                local PredictedPosition = Character.HumanoidRootPart.Position
+                                    + (Character.Humanoid.MoveDirection * Character.Humanoid.WalkSpeed) / 2
+                                    + Vector3.new(0, Character.HumanoidRootPart.Velocity.Y / 10, 0)
+
+                                Root.CFrame = CFrame.new(PredictedPosition) * Root.CFrame.Rotation
+                            else
+                                Root.CFrame = Character.HumanoidRootPart.CFrame * Root.CFrame.Rotation
+                            end
+
+                            Root.Velocity = Vector3.new()
+                        else
+                            break
+                        end
+                    end
+
+                    BodyGyro:Destroy()
+                    Root.AssemblyLinearVelocity = Vector3.new()
+                    Root.AssemblyAngularVelocity = Vector3.new()
+                    Root.CFrame = LastPos
+
+                    Humanoid:ChangeState(Enum.HumanoidStateType.Landed)
+                end
+
+                A_2 = false
+            end
+        end)
+
+        -- Notification
+        OrionLib:MakeNotification({
+            Name = "Reminder",
+            Content = "This only supports laptop/PC users! Keybind to activate is Z",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+TrollSection:AddButton({
+    Name = "Ultra Instinct",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+        local userInputService = game:GetService("UserInputService")
+        local ultraInstinctEnabled = false
+        local detectionRadius = 25
+        local detectionLoop
+
+        -- Create a frame for the visual indicator
+        local screenGui = Instance.new("ScreenGui", player.PlayerGui)
+        local statusFrame = Instance.new("Frame", screenGui)
+        statusFrame.Size = UDim2.new(0, 100, 0, 50)
+        statusFrame.Position = UDim2.new(0, 10, 0, 10)
+        statusFrame.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red for disabled
+
+        -- Function to teleport the player
+        local function teleportPlayer()
+            local directions = {
+                Vector3.new(-10, 0, 0), -- Left
+                Vector3.new(10, 0, 0), -- Right
+                Vector3.new(0, 0, -10), -- Backward
+                Vector3.new(0, 0, 10) -- Forward
+            }
+            local randomDirection = directions[math.random(1, #directions)]
+            local newPosition = humanoidRootPart.Position + randomDirection
+            humanoidRootPart.CFrame = CFrame.new(newPosition)
+        end
+
+        -- Detection logic
+        local function detectNearbyPlayers()
+            for _, otherPlayer in pairs(game.Players:GetPlayers()) do
+                if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    local otherRootPart = otherPlayer.Character.HumanoidRootPart
+                    if (humanoidRootPart.Position - otherRootPart.Position).Magnitude <= detectionRadius then
+                        teleportPlayer()
+                        break
+                    end
+                end
+            end
+        end
+
+        -- Toggle Ultra Instinct
+        local function toggleUltraInstinct()
+            ultraInstinctEnabled = not ultraInstinctEnabled
+            if ultraInstinctEnabled then
+                print("Ultra Instinct Enabled")
+                statusFrame.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green for enabled
+                detectionLoop = task.spawn(function()
+                    while ultraInstinctEnabled do
+                        detectNearbyPlayers()
+                        task.wait(0.1)
+                    end
+                end)
+            else
+                print("Ultra Instinct Disabled")
+                statusFrame.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red for disabled
+                if detectionLoop then
+                    task.cancel(detectionLoop)
+                end
+            end
+        end
+
+        -- Detect key press
+        userInputService.InputBegan:Connect(function(input, gameProcessed)
+            if gameProcessed then return end
+            if input.KeyCode == Enum.KeyCode.U then
+                toggleUltraInstinct()
+            end
+        end)
+
+        -- Notification
+        OrionLib:MakeNotification({
+            Name = "Reminder",
+            Content = "This only supports laptop/PC users! Keybind to activate is U",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+-- Fun Features
+FunSection:AddButton({
+    Name = "Explosive Jump",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            -- Apply an upward force to simulate an explosive jump
+            local humanoidRootPart = player.Character.HumanoidRootPart
+            local bodyVelocity = Instance.new("BodyVelocity")
+            bodyVelocity.MaxForce = Vector3.new(50000, 50000, 50000)  -- Strong force in all directions
+            bodyVelocity.Velocity = Vector3.new(0, 100, 0)  -- Propel upwards
+            bodyVelocity.Parent = humanoidRootPart
+
+            -- Make sure to remove the BodyVelocity after a short time to prevent continuous force application
+            game:GetService("Debris"):AddItem(bodyVelocity, 0.2)  -- Clean up after 0.2 seconds
+
+            -- Notify the user of the explosive jump
+            OrionLib:MakeNotification({
+                Name = "BOOM!",
+                Content = "You performed an explosive jump!",
+                Time = 5,
+                Icon = "rbxassetid://4483345998"
+            })
+        end
+    end
+})
+FunSection:AddButton({
+    Name = "Sparkling Effect",
+    Callback = function()
+        -- Get the player and their character
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local torso = character:WaitForChild("HumanoidRootPart") -- You can use any part like "Torso" or "Head"
+
+        -- Create sparkles
+        local sparkles = Instance.new("Sparkles")
+        sparkles.Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)) -- Random color
+        sparkles.Parent = torso -- Attach sparkles to the part
+
+        -- Notify the user that the effect is applied
+        OrionLib:MakeNotification({
+            Name = "Sparkling Effect",
+            Content = "Not working :(",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+FunSection:AddButton({
+    Name = "Ghost Mode",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+
+        -- Make the player invisible
+        character:WaitForChild("Head").Transparency = 1
+        character:WaitForChild("Torso").Transparency = 1
+        character:WaitForChild("LeftLeg").Transparency = 1
+        character:WaitForChild("RightLeg").Transparency = 1
+        character:WaitForChild("LeftArm").Transparency = 1
+        character:WaitForChild("RightArm").Transparency = 1
+
+        -- Notify the user that Ghost Mode is activated
+        OrionLib:MakeNotification({
+            Name = "Ghost Mode Activated",
+            Content = "You are now invisible!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+FunSection:AddButton({
+    Name = "Super Speed",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+
+        -- Set speed to a higher value
+        local humanoid = character:WaitForChild("Humanoid")
+        humanoid.WalkSpeed = 100  -- Set to a high value for super speed
+
+        OrionLib:MakeNotification({
+            Name = "Super Speed Activated",
+            Content = "You are now super fast!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+FunSection:AddButton({
+    Name = "Throw Fireball",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+        -- Create the fireball
+        local fireball = Instance.new("Part")
+        fireball.Size = Vector3.new(2, 2, 2)
+        fireball.Shape = Enum.PartType.Ball
+        fireball.Position = humanoidRootPart.Position + humanoidRootPart.CFrame.LookVector * 5
+        fireball.Anchored = false
+        fireball.CanCollide = false
+        fireball.Material = Enum.Material.Neon
+        fireball.Color = Color3.fromRGB(255, 0, 0)  -- Red color
+        fireball.Parent = workspace
+
+        -- Add velocity to the fireball
+        local bodyVelocity = Instance.new("BodyVelocity")
+        bodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
+        bodyVelocity.Velocity = humanoidRootPart.CFrame.LookVector * 100
+        bodyVelocity.Parent = fireball
+
+        -- Destroy the fireball after 5 seconds
+        game:GetService("Debris"):AddItem(fireball, 5)
+
+        OrionLib:MakeNotification({
+            Name = "Fireball Shot",
+            Content = "You threw a fireball!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+
+
+-- Player Enhancements
+PlayerFeature:AddSlider({
+    Name = "Speed",
+    Min = 16,
+    Max = 200,  -- Maximum speed, adjust as needed
+    Default = 16,  -- Default Roblox walk speed
+    Color = Color3.fromRGB(169, 169, 169),
+    Increment = 1,
+    ValueName = "Speed",
+    Callback = function(Value)
+        -- Access the player's humanoid and change the walk speed
+        local Player = game.Players.LocalPlayer
+        local Character = Player.Character or Player.CharacterAdded:Wait()
+        local Humanoid = Character:WaitForChild("Humanoid")
+
+        -- Update the humanoid's walk speed based on the slider value
+        Humanoid.WalkSpeed = Value
+    end
+})
+PlayerFeature:AddSlider({
+    Name = "Jump Power",
+    Min = 50,
+    Max = 200,  -- Maximum jump power, adjust as needed
+    Default = 50,  -- Default jump power
+    Color = Color3.fromRGB(169, 169, 169),
+    Increment = 1,
+    ValueName = "Jump Power",
+    Callback = function(Value)
+        -- Access the player's humanoid and change the jump power
+        local Player = game.Players.LocalPlayer
+        local Character = Player.Character or Player.CharacterAdded:Wait()
+        local Humanoid = Character:WaitForChild("Humanoid")
+
+        -- Update the humanoid's jump power based on the slider value
+        Humanoid.JumpPower = Value
+    end
+})
+PlayerFeature:AddSlider({
+    Name = "Gravity",
+    Min = 196.2, -- Minimum gravity (higher value makes it heavier)
+    Max = 500, -- Maximum gravity
+    Default = 196.2, -- Default gravity
+    Color = Color3.fromRGB(169, 169, 169), -- Blue color
+    Increment = 1, -- Value will increment by 1 each time
+    ValueName = "Gravity",
+    Callback = function(Value)
+        game.Workspace.Gravity = Value
+    end    
+})
+PlayerFeature:AddSlider({
+    Name = "Field of View",
+    Min = 90, -- Minimum FOV
+    Max = 120, -- Maximum FOV
+    Default = 90, -- Default FOV
+    Color = Color3.fromRGB(169, 169, 169), -- Orange color
+    Increment = 1, -- Value will increment by 1 each time
+    ValueName = "FOV",
+    Callback = function(Value)
+        game.Workspace.CurrentCamera.FieldOfView = Value
+    end    
+})
+
+
+PlayerFeature:AddButton({
+    Name = "Speed Boost",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("Humanoid") then
+            player.Character.Humanoid.WalkSpeed = 50
+            OrionLib:MakeNotification({
+                Name = "Speed Boost",
+                Content = "Your walk speed has been increased!",
+                Time = 5,
+                Icon = "rbxassetid://4483345998"
+            })
+        end
+    end
+})
+PlayerFeature:AddButton({
+    Name = "Jump Boost",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("Humanoid") then
+            player.Character.Humanoid.JumpPower = 100
+            OrionLib:MakeNotification({
+                Name = "Jump Boost",
+                Content = "Your jump power has been increased!",
+                Time = 5,
+                Icon = "rbxassetid://4483345998"
+            })
+        end
+    end
+})
+---Start of hub
+MainHubInfoSection:AddButton({
+    Name = "Click me For Information",  -- Button name
+    Callback = function()
+        -- First notification
+        OrionLib:MakeNotification({
+            Name = "Hub Information",  -- Title of the first notification
+            Content = ". Warning: Some hubs may require keys or may not work as expected. Always ensure you are using the latest, most trusted scripts for a seamless experience. For the best results, use the provided scripts with no key requirement to avoid any issues or use the correct executor.",
+            Time = 10,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+
+--------NORMAL
+MainHubSection:AddButton({ 
+    Name = "Execute Speed Hub | Fisch", 
+    Callback = function()
+        -- Execute the script from the provided URL
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+        
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Speed Hub X script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053" -- You can change this icon if you prefer
+        })
+    end
+})
+MainHubSection:AddButton({ 
+    Name = "Sky Wars", 
+    Callback = function()
+        -- Execute the script from the provided URL
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SkibidiCen/MainMenu/main/Code"))()
+        
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Speed Hub X script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053" -- You can change this icon if you prefer
+        })
+    end
+})
+MainHubSection:AddButton({
+    Name = "BloxFruit",
+    Callback = function()
+        -- Executes the BloxFruit script
+        loadstring(game:HttpGet("https://nicuse.xyz/BloxFruits.lua"))()
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "BloxFruit script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+MainHubSection:AddButton({
+    Name = "AutoParry GOD Manual Spam No Delays..| bladeball",
+    Callback = function()
+        -- Executes the Bladeball script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/redopy7/Blade-Ball/refs/heads/main/Kalitor"))()
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Bladeball script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MainHubSection:AddButton({
+    Name = "Therhub | Build A boat",
+    Callback = function()
+        -- Executes the Build a Boat script
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2529a5f9dfddd5523ca4e22f21cceffa.lua"))()
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Build a Boat script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MainHubSection:AddButton({
+    Name = "Execute Bot Quiz | A literal baseplate",
+    Callback = function()
+        -- Executes the quizbot script
+        local CategoryManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Damian-11/quizbot/master/quizbot.luau"))()
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Quizbot script has been executed",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+---hubs with keys
+MainHubWithKeysSection:AddButton({ 
+    Name = "Bdokkx Hub (Rivals)", 
+    Callback = function()
+        -- Execute the script from the provided URL
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/bennettlol/RIVALS/refs/heads/main/RIVALS",true))()
+                -- Copy Discord link to clipboard
+        setclipboard("http://discord.gg/getgalaxy")
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Rivals script has been executed!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Add a delay before the second notification
+        wait(2)  -- Delay of 2 seconds
+
+        -- Notify the user about the key information
+        OrionLib:MakeNotification({
+            Name = "Key Information",
+            Content = "Key can be achieved at Discord link or chrome link, it's on your clipboard.",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MainHubWithKeysSection:AddButton({
+    Name = "Jailbreak (Has key)",
+    Callback = function()
+        -- Executes the Jailbreak script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/kiciahook/kiciahook/refs/heads/main/loader.lua"))()
+
+        -- Copy Discord link to clipboard
+        setclipboard("https://discord.gg/sd8EfWv9x3")
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Jailbreak script has been executed!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Add a delay before the second notification
+        wait(2)  -- Delay of 2 seconds
+
+        -- Notify the user about the key information
+        OrionLib:MakeNotification({
+            Name = "Key Information",
+            Content = "Key can be achieved at Discord link or chrome link, it's on your clipboard.",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MainHubWithKeysSection:AddButton({
+    Name = "Arsenal (Has key)",
+    Callback = function()
+        -- Executes the Arsenal script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FishyPlayzThis/Projecthub-Arsenal/refs/heads/main/obf_QoCPBEH6oZ3Bsrk9saw8oegnmuMZtW0z764FNNfvFwGDACIespPcUZd9NU7P6uq6.lua"))()
+
+        -- Copy the key link to clipboard
+        setclipboard("https://keyguardian.org/a/226")
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Arsenal script has been executed!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Add a delay before the second notification
+        wait(2)  -- Delay of 2 seconds
+
+        -- Notify the user about the key information
+        OrionLib:MakeNotification({
+            Name = "Key Information",
+            Content = "Key can be obtained at the link. It's on your clipboard.",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MainHubWithKeysSection:AddButton({
+    Name = "Strongest Battleground (Has Key)",
+    Callback = function()
+        -- Executes the Strongest Battleground script
+        loadstring(game:HttpGet("https://nicuse.xyz/MainHub.lua"))()
+
+        -- Copy Key link to clipboard
+        setclipboard("https://nicuse.xyz/getkey")
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Strongest Battleground script has been executed!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Add a delay before the second notification
+        wait(2)  -- Delay of 2 seconds
+
+        -- Notify the user about the key information
+        OrionLib:MakeNotification({
+            Name = "Key Information",
+            Content = "Key can be achieved at the link, it's on your clipboard.",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+MainHubWithKeysSection:AddButton({
+    Name = "Forge Hub | fisch (has key)",
+    Callback = function()
+        -- Executes the Forge Hub script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+
+        -- Copies the key link to clipboard
+        setclipboard("https://ads.luarmor.net/get_key?for=Forge_Hub_Key_System-yoGtymGRJfTW")
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Forge Hub script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Add a delay before the second notification
+        wait(2)  -- Delay of 2 seconds
+
+        -- Notify the user about the key information
+        OrionLib:MakeNotification({
+            Name = "Key Information",
+            Content = "Key link copied to clipboard. Please visit the link to obtain the key.",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+
+---Universal
+UniversalHubSection:AddButton({
+    Name = "Universal Hub v3",
+    Callback = function()
+        -- Executes the Universal Hub script
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Script-hub-v3-21124"))()
+
+        -- Notify the user that the script has been executed
+        OrionLib:MakeNotification({
+            Name = "Script Executed",
+            Content = "Universal Hub v3 script has been executed successfully!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+    end
+})
+
+---Join game tab buttons,slifer,dropdown, and more
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+
+local Player = Players.LocalPlayer
+
+MainGameSection:AddButton({
+    Name = "Teleport to Fisch",
+    Callback = function()
+        local GameID = 16732694052 -- Replace this with the actual game ID
+
+        -- Notify the user about the teleportation
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Game ID: " .. GameID,
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Perform the teleport
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+MainGameSection:AddButton({
+    Name = "Teleport to Blox Fruit",
+    Callback = function()
+        local GameID = 2753915549 -- Replace this with the actual game ID
+
+        -- Notify the user about the teleportation
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Game ID: " .. GameID,
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Perform the teleport
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+MainGameSection:AddButton({
+    Name = "Teleport to Blade ball",
+    Callback = function()
+        local GameID = 13772394625 -- Replace this with the actual game ID
+
+        -- Notify the user about the teleportation
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Game ID: " .. GameID,
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Perform the teleport
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+MainGameSection:AddButton({
+    Name = "Teleport to A literal baseplate.",
+    Callback = function()
+        local GameID = 4483381587 -- Replace this with the actual game ID
+
+        -- Notify the user about the teleportation
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Game ID: " .. GameID,
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+
+        -- Perform the teleport
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+-- Arsenal
+MainGameSection:AddButton({
+    Name = "Teleport to Arsenal",
+    Callback = function()
+        local GameID = 286090429
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Arsenal!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Pet Simulator X
+MainGameSection:AddButton({
+    Name = "Teleport to Pet Simulator X",
+    Callback = function()
+        local GameID = 6284583030
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Pet Simulator X!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Tower of Hell
+MainGameSection:AddButton({
+    Name = "Teleport to Tower of Hell",
+    Callback = function()
+        local GameID = 1962086868
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Tower of Hell!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Shindo Life
+MainGameSection:AddButton({
+    Name = "Teleport to Shindo Life",
+    Callback = function()
+        local GameID = 4616652839
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Shindo Life!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Anime Fighting Simulator
+MainGameSection:AddButton({
+    Name = "Teleport to Anime Fighting Simulator",
+    Callback = function()
+        local GameID = 4042427666
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Anime Fighting Simulator!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Murder Mystery 2
+MainGameSection:AddButton({
+    Name = "Teleport to Murder Mystery 2",
+    Callback = function()
+        local GameID = 142823291
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Murder Mystery 2!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Build A Boat For Treasure
+MainGameSection:AddButton({
+    Name = "Teleport to Build A Boat For Treasure",
+    Callback = function()
+        local GameID = 537413528
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Build A Boat For Treasure!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Doors
+MainGameSection:AddButton({
+    Name = "Teleport to Doors",
+    Callback = function()
+        local GameID = 6516141723
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Doors!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Brookhaven
+MainGameSection:AddButton({
+    Name = "Teleport to Brookhaven",
+    Callback = function()
+        local GameID = 4924922222
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Brookhaven!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Tower Defense Simulator
+MainGameSection:AddButton({
+    Name = "Teleport to Tower Defense Simulator",
+    Callback = function()
+        local GameID = 3260590327
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Tower Defense Simulator!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+-- Natural Disaster Survival
+MainGameSection:AddButton({
+    Name = "Teleport to Natural Disaster Survival",
+    Callback = function()
+        local GameID = 189707
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Natural Disaster Survival!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Adopt Me!
+MainGameSection:AddButton({
+    Name = "Teleport to Adopt Me!",
+    Callback = function()
+        local GameID = 920587237
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Adopt Me!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Flee the Facility
+MainGameSection:AddButton({
+    Name = "Teleport to Flee the Facility",
+    Callback = function()
+        local GameID = 893973440
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Flee the Facility!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+-- Hide and Seek Extreme
+MainGameSection:AddButton({
+    Name = "Teleport to Hide and Seek Extreme",
+    Callback = function()
+        local GameID = 205224386
+        OrionLib:MakeNotification({
+            Name = "Teleporting...",
+            Content = "You are being teleported to Hide and Seek Extreme!",
+            Time = 5,
+            Icon = "rbxassetid://6031071053"
+        })
+        TeleportService:Teleport(GameID, Player)
+    end
+})
+
+
+----Misc Main
+MiscMainSection:AddToggle({
+    Name = "Anti-20 Minute Disconnect",
+    Default = false,
+    Callback = function(Value)
+        local player = game.Players.LocalPlayer
+        local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+        
+        -- Stop any existing loop
+        if _G.AntiDisconnectTimer then
+            _G.AntiDisconnectTimer:Disconnect()
+            _G.AntiDisconnectTimer = nil
+        end
+        
+        -- Start the loop if toggled on
+        if Value then
+            _G.AntiDisconnectTimer = game:GetService("RunService").RenderStepped:Connect(function()
+                if os.clock() % (19 * 60) < 1 then -- Every 19 minutes
+                    if humanoid then
+                        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                    end
+                end
+            end)
+        end
+    end
+})
+-- performance Features
+FPSBoostSection:AddButton({
+    Name = "FPS Booster",
+    Callback = function()
+        for _, part in ipairs(workspace:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.Material = Enum.Material.SmoothPlastic
+                part.CastShadow = false
+            end
+        end
+        local lighting = game:GetService("Lighting")
+        lighting.GlobalShadows = false
+        lighting.Brightness = 1
+        OrionLib:MakeNotification({
+            Name = "FPS Boost Activated",
+            Content = "Game optimized for better performance!",
+            Time = 5,
+            Icon = "rbxassetid://4483345998"
+        })
+    end
+})
+---misc feature
+MiscMainSection:AddButton({
+    Name = "Rejoin Server",
+    Callback = function()
+        -- Function to rejoin the current server
+        local TeleportService = game:GetService("TeleportService")
+        local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+
+        -- Rejoin the same server
+        TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, player)
+    end
+})
+--------beta section
+
+
+
+
+
+---ESP SECTION
+EspSection:AddToggle({
+    Name = "Highlight Players and Display Info",
+    Default = false,
+    Callback = function(isToggled)
+        local Players = game:GetService("Players")
+        local UserInputService = game:GetService("UserInputService")
+
+        -- Function to create the health bar, username, and device info above players' heads
+        local function createPlayerInfo(player)
+            local character = player.Character
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                -- Highlight the player in red except for the local player
+                if player ~= game.Players.LocalPlayer then
+                    local highlight = Instance.new("Highlight")
+                    highlight.Adornee = character
+                    highlight.FillColor = Color3.fromRGB(255, 0, 0)
+                    highlight.Parent = character
+                end
+
+                -- Create a BillboardGui to hold all player information
+                local infoGui = Instance.new("BillboardGui")
+                infoGui.Adornee = character.Head
+                infoGui.Size = UDim2.new(0, 200, 0, 100)
+                infoGui.StudsOffset = Vector3.new(0, 3, 0)
+                infoGui.Parent = character.Head
+
+                -- Device Type Text (Top)
+                local deviceTypeText = Instance.new("TextLabel")
+                deviceTypeText.Text = "Device: UNKNOWN"
+                deviceTypeText.Size = UDim2.new(1, 0, 0.3, 0)
+                deviceTypeText.Position = UDim2.new(0, 0, 0, 0) -- Top position
+                deviceTypeText.BackgroundTransparency = 1
+                deviceTypeText.TextColor3 = Color3.fromRGB(255, 255, 255)
+                deviceTypeText.TextScaled = true
+                deviceTypeText.Parent = infoGui
+
+                -- Username Text (Middle)
+                local usernameText = Instance.new("TextLabel")
+                usernameText.Text = "Username: " .. player.Name
+                usernameText.Size = UDim2.new(1, 0, 0.3, 0)
+                usernameText.Position = UDim2.new(0, 0, 0.3, 0) -- Middle position
+                usernameText.BackgroundTransparency = 1
+                usernameText.TextColor3 = Color3.fromRGB(255, 255, 255)
+                usernameText.TextScaled = true
+                usernameText.Parent = infoGui
+
+                -- Health Text (Bottom)
+                local healthText = Instance.new("TextLabel")
+                healthText.Text = "Health: " .. math.floor(character:WaitForChild("Humanoid").Health)
+                healthText.Size = UDim2.new(1, 0, 0.3, 0)
+                healthText.Position = UDim2.new(0, 0, 0.6, 0) -- Bottom position
+                healthText.BackgroundTransparency = 1
+                healthText.TextColor3 = Color3.fromRGB(255, 255, 255)
+                healthText.TextScaled = true
+                healthText.Parent = infoGui
+
+                -- Update health in real-time
+                local humanoid = character:WaitForChild("Humanoid")
+                humanoid.HealthChanged:Connect(function()
+                    healthText.Text = "Health: " .. math.floor(humanoid.Health)
+                end)
+            end
+        end
+
+        -- Toggle to show or hide player information
+        if isToggled then
+            -- Iterate through all players and create info for them
+            for _, player in pairs(Players:GetPlayers()) do
+                createPlayerInfo(player)
+            end
+
+            -- Update player info when players join
+            Players.PlayerAdded:Connect(createPlayerInfo)
+        else
+            -- Clear any existing player info when toggled off
+            for _, player in pairs(Players:GetPlayers()) do
+                local character = player.Character
+                if character and character:FindFirstChild("Head") then
+                    local billboardGui = character.Head:FindFirstChildOfClass("BillboardGui")
+                    if billboardGui then
+                        billboardGui:Destroy()
+                    end
+                end
+            end
+        end
+    end
+})
+EspSection:AddToggle({
+    Name = "ESP Toggle",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            -- ESP Enabled
+            for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+                if player ~= game.Players.LocalPlayer then
+                    -- Check if ESP already exists for this player
+                    if not player:FindFirstChild("ESP") then
+                        local esp = Instance.new("BillboardGui", player.Character and player.Character:FindFirstChild("HumanoidRootPart"))
+                        esp.Name = "ESP"
+                        esp.Size = UDim2.new(0, 100, 0, 40)
+                        esp.AlwaysOnTop = true
+                        esp.Adornee = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+
+                        local textLabel = Instance.new("TextLabel", esp)
+                        textLabel.Size = UDim2.new(1, 0, 1, 0)
+                        textLabel.BackgroundTransparency = 1
+                        textLabel.Text = player.Name
+                        textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+                        textLabel.TextStrokeTransparency = 0
+                    end
+                end
+            end
+
+            OrionLib:MakeNotification({
+                Name = "ESP Enabled",
+                Content = "ESP has been turned on.",
+                Time = 5,
+                Icon = "rbxassetid://6031071053"
+            })
+        else
+            -- ESP Disabled
+            for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+                if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                    local esp = player.Character.HumanoidRootPart:FindFirstChild("ESP")
+                    if esp then
+                        esp:Destroy()
+                    end
+                end
+            end
+
+            OrionLib:MakeNotification({
+                Name = "ESP Disabled",
+                Content = "ESP has been turned off.",
+                Time = 5,
+                Icon = "rbxassetid://6031071053"
+            })
+        end
+    end
+})
+---geting discontinue
+GettingDiscontinueSection:AddButton({
+    Name = "Join Low Player Server(WIP)",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Getting discontinue",
+            Content = "This its getting discontinue in version 2.2",
+            Time = 5,
+            Icon = "rbxassetid://6031071053" -- Notification icon
+        })
+    end
+})
+GettingDiscontinueSection:AddButton({
+    Name = "Invisible & Fling All(wip)",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Getting discontinue",
+            Content = "This its getting discontinue in version 2.2",
+            Time = 5,
+            Icon = "rbxassetid://6031071053" -- Notification icon
+        })
+    end
+})
+-- Initialize GUI
+OrionLib:Init()
