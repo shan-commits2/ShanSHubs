@@ -64,7 +64,7 @@ local playerName = game.Players.LocalPlayer.Name  -- Get the player's name
 local HomeSection = HomeTab:AddSection({ Name = "Welcome" })
 
 -- Add welcome message with player's name
-HomeSection:AddParagraph("Info", "Welcome " .. playerName .. "! Enjoy a variety of features to enhance your experience! Version 2.1")
+HomeSection:AddParagraph("Info", "Welcome " .. playerName .. "! Enjoy a variety of features to enhance your experience! Version 2")
 -- Copy Orion Document Link Button
 HomeSection:AddButton({
     Name = "Copy Orion Document Link",
@@ -86,7 +86,7 @@ HomeSection:AddButton({
 local MainHomeTab = HomeTab:AddSection({ Name = "Home"})
 local MessageFCSection = HomeTab:AddSection({ Name = "Owner message"})
 local BetaSection = HomeTab:AddSection({ Name = "Beta Features"})
-local GettingDiscontinueSection = HomeTab:AddSection({ Name = "Getting discontinue" })
+local GettingdiscontinueSection = HomeTab:AddSection({ Name = "Getting discontinue" })
 -- Main Tab Sections
 local MainSection = MainTab:AddSection({ Name = "Main Features" })
 local PlayerFeature = MainTab:AddSection({ Name = "Player Features"})
@@ -127,7 +127,7 @@ MainHomeTab:AddButton({
     Callback = function()
         OrionLib:MakeNotification({
             Name = "Changelog",
-            Content = "Version 2.1: Updates include new features in the Main section, enhancements to 'Teleport to Player,' improved 'Support' in Home > Home Section > Support, various optimizations, and more exciting changes`!",
+            Content = "Version 2.1: Updates include new features in the Main section, enhancements to 'Teleport to Player,' improved 'Support' in Home > Home Section > Support, various optimizations, and more exciting changes!",
             Time = 50,
             Icon = "rbxassetid://6031071053"
         })
@@ -184,46 +184,6 @@ MessageFCSection:AddButton({
     end
 })
 -- Main Features
-MainSection:AddToggle({
-    Name = "Anti-Spawn Kill",
-    Default = false,
-    Callback = function(Value)
-        local player = game.Players.LocalPlayer
-        local character = player.Character
-
-        -- Function to teleport the player 100 studs away from their spawn
-        local function teleportAway()
-            if character and character:FindFirstChild("HumanoidRootPart") then
-                -- Get the spawn location (or spawn point) and teleport the player 100 studs away
-                local spawnLocation = character.HumanoidRootPart.Position
-                local direction = Vector3.new(math.random(-1, 1), 0, math.random(-1, 1)) -- Random direction
-                local newLocation = spawnLocation + direction * 100
-
-                -- Teleport to new location
-                character:SetPrimaryPartCFrame(CFrame.new(newLocation))
-
-                OrionLib:MakeNotification({
-                    Name = "Anti-Spawn Kill Activated",
-                    Content = "You have been teleported 100 studs away from spawn.",
-                    Time = 2,
-                    Icon = "rbxassetid://6031071053"
-                })
-            end
-        end
-
-        -- Check the value of the toggle
-        if Value then
-            -- Teleport the player immediately when the toggle is enabled
-            teleportAway()
-
-            -- Detect respawn and apply the teleport again
-            player.CharacterAdded:Connect(function(newCharacter)
-                wait(1)  -- Wait a bit for the character to load
-                teleportAway()
-            end)
-        end
-    end
-})
 MainSection:AddToggle({
     Name = "Forcefield Toggle",
     Default = false,
@@ -1337,7 +1297,7 @@ FunSection:AddButton({
 PlayerFeature:AddSlider({
     Name = "Speed",
     Min = 16,
-    Max = 200,  -- Maximum speed, adjust as needed
+    Max = 500,  -- Maximum speed, adjust as needed
     Default = 16,  -- Default Roblox walk speed
     Color = Color3.fromRGB(169, 169, 169),
     Increment = 1,
@@ -2047,9 +2007,10 @@ MiscMainSection:AddButton({
 
 
 
+
 ---ESP SECTION
 EspSection:AddToggle({
-    Name = "Highlight Players and Display Info",
+    Name = "Highlight Players and Display Info(wip)",
     Default = false,
     Callback = function(isToggled)
         local Players = game:GetService("Players")
@@ -2135,60 +2096,53 @@ EspSection:AddToggle({
         end
     end
 })
+-- ESP Toggle in EspSection
 EspSection:AddToggle({
-    Name = "ESP Toggle",
-    Default = false,
+    Name = "ESP Toggle",  -- Name of the toggle
+    Default = false,  -- Default value (ESP off)
     Callback = function(Value)
         if Value then
-            -- ESP Enabled
-            for _, player in pairs(game:GetService("Players"):GetPlayers()) do
-                if player ~= game.Players.LocalPlayer then
-                    -- Check if ESP already exists for this player
-                    if not player:FindFirstChild("ESP") then
-                        local esp = Instance.new("BillboardGui", player.Character and player.Character:FindFirstChild("HumanoidRootPart"))
-                        esp.Name = "ESP"
-                        esp.Size = UDim2.new(0, 100, 0, 40)
-                        esp.AlwaysOnTop = true
-                        esp.Adornee = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
-
-                        local textLabel = Instance.new("TextLabel", esp)
-                        textLabel.Size = UDim2.new(1, 0, 1, 0)
-                        textLabel.BackgroundTransparency = 1
-                        textLabel.Text = player.Name
-                        textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-                        textLabel.TextStrokeTransparency = 0
-                    end
+            -- Enable ESP (You can customize the ESP logic as needed)
+            local player = game.Players.LocalPlayer
+            for _, obj in pairs(workspace:GetChildren()) do
+                if obj:IsA("Model") and obj:FindFirstChild("Head") then
+                    local espBox = Instance.new("BillboardGui")
+                    espBox.Adornee = obj:FindFirstChild("Head")
+                    espBox.Size = UDim2.new(0, 200, 0, 50)
+                    espBox.StudsOffset = Vector3.new(0, 2, 0)
+                    espBox.Parent = player.PlayerGui
+                    local textLabel = Instance.new("TextLabel")
+                    textLabel.Size = UDim2.new(1, 0, 1, 0)
+                    textLabel.BackgroundTransparency = 1
+                    textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+                    textLabel.Text = obj.Name
+                    textLabel.Parent = espBox
                 end
             end
-
-            OrionLib:MakeNotification({
-                Name = "ESP Enabled",
-                Content = "ESP has been turned on.",
-                Time = 5,
-                Icon = "rbxassetid://6031071053"
-            })
         else
-            -- ESP Disabled
-            for _, player in pairs(game:GetService("Players"):GetPlayers()) do
-                if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                    local esp = player.Character.HumanoidRootPart:FindFirstChild("ESP")
-                    if esp then
-                        esp:Destroy()
-                    end
+            -- Disable ESP (Remove existing ESPs)
+            for _, gui in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+                if gui:IsA("BillboardGui") then
+                    gui:Destroy()
                 end
             end
-
-            OrionLib:MakeNotification({
-                Name = "ESP Disabled",
-                Content = "ESP has been turned off.",
-                Time = 5,
-                Icon = "rbxassetid://6031071053"
-            })
         end
     end
 })
----geting discontinue
-GettingDiscontinueSection:AddButton({
+
+----getting discontinue-------------------------------------------------------------------------------
+GettingdiscontinueSection:AddButton({
+    Name = "Anti-Spawn Kill",
+    Callback = function()
+    OrionLib:MakeNotification({
+        Name = "Why?",
+        Content = "im lazyyy",
+        Time = 5,
+        Icon = "rbxassetid://6031071053"
+    })
+end
+})
+GettingdiscontinueSection:AddButton({
     Name = "Join Low Player Server(WIP)",
     Callback = function()
         OrionLib:MakeNotification({
@@ -2197,9 +2151,17 @@ GettingDiscontinueSection:AddButton({
             Time = 5,
             Icon = "rbxassetid://6031071053" -- Notification icon
         })
-    end
+    
+    wait(1)
+    OrionLib:MakeNotification({
+        Name = "Why?",
+        Content = "Coudnt successfully request in roblox server that just makes it the player couldnt join other server with a certain player count",
+        time = 5,
+        Icon = "rbxassetid://6031071053"
+    })
+end
 })
-GettingDiscontinueSection:AddButton({
+GettingdiscontinueSection:AddButton({
     Name = "Invisible & Fling All(wip)",
     Callback = function()
         OrionLib:MakeNotification({
