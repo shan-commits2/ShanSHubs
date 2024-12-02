@@ -21,6 +21,7 @@
 local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
 local Window = OrionLib:MakeWindow({
     Name = "Shan's Fun Hub | V.2.1",
+    IntroText = "Shan's Hub",
     HidePremium = false,
     SaveConfig = false,
     ConfigFolder = "OrionTest",
